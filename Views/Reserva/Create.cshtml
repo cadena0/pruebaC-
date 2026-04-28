@@ -1,0 +1,69 @@
+@model PruebaDesempeño.Models.Reservas
+
+<div class="container mt-4">
+
+    <div class="row mb-3">
+        <div class="col-12">
+            <h2>Crear Reserva</h2>
+        </div>
+    </div>
+
+    @if (TempData["message"] != null)
+    {
+        <div class="alert alert-@TempData["status"]">
+            @TempData["message"]
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <form asp-controller="Reserva" asp-action="Create" method="post">
+
+                <div class="mb-3">
+                    <label class="form-label">Usuario</label>
+                    <input asp-for="UsuariosId" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Espacio Deportivo</label>
+                    <input asp-for="EspacioDeportivoId" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Fecha</label>
+                    <input asp-for="Fecha" type="date" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Hora Inicio</label>
+                    <input asp-for="horaInicio" type="time" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Hora Fin</label>
+                    <input asp-for="horaFim" type="time" class="form-control" />
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success">
+                        Guardar
+                    </button>
+
+                    <a asp-controller="Reserva"
+                       asp-action="Index"
+                       class="btn btn-secondary">
+                        Cancelar
+                    </a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

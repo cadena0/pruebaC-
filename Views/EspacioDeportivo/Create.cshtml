@@ -1,0 +1,53 @@
+@model PruebaDesempeño.Models.EspacioDeportivo
+
+<div class="container mt-4">
+
+    <div class="row mb-3">
+        <div class="col-12">
+            <h2>Crear Espacio Deportivo</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <form asp-controller="EspacioDeportivo" asp-action="Create" method="post">
+
+                <div class="mb-3">
+                    <label class="form-label">Nombre</label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Tipo de Espacio</label>
+                    <input asp-for="TipoEspacio" class="form-control" placeholder="Ej: Fútbol, Baloncesto, Piscina" />
+                    <span asp-validation-for="TipoEspacio" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Capacidad</label>
+                    <input asp-for="capacidad" type="number" class="form-control" />
+                    <span asp-validation-for="capacidad" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success">
+                        Guardar
+                    </button>
+
+                    <a asp-controller="EspacioDeportivo" asp-action="Index" class="btn btn-secondary">
+                        Cancelar
+                    </a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
